@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'ÉLÉGANCE | Haute Couture</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-black: #0a0a0a;
+            --primary-white: #ffffff;
+            --soft-gray: #f5f5f5;
+            --mid-gray: #7a7a7a;
+        }
+
+        body {
+            background-color: var(--primary-white);
+            color: var(--primary-black);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .editorial-line {
+            height: 1px;
+            background-color: var(--primary-black);
+            transform-origin: left;
+            transition: transform 0.6s ease;
+        }
+
+        .image-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-container img {
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        nav {
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: black;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .marquee-wrapper {
+            overflow: hidden;
+            white-space: nowrap;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: white;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <h1 class="font-serif text-3xl tracking-tighter animate-pulse">L'ÉLÉGANCE</h1>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 py-6 px-10 flex justify-between items-center">
+        <div class="flex gap-8 items-center hidden md:flex">
+            <a href="#" class="nav-link">Koleksi</a>
+            <a href="#" class="nav-link">Atelier</a>
+            <a href="#" class="nav-link">Warisan</a>
+        </div>
+        <div class="text-2xl font-serif tracking-[0.2em] font-bold">L'ÉLÉGANCE</div>
+        <div class="flex gap-8 items-center">
+            <a href="#" class="nav-link hidden md:block">Pencarian</a>
+            <a href="#" class="nav-link font-semibold">Tas (0)</a>
+            <button class="md:hidden">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden pt-20">
+        <div class="grid grid-cols-12 w-full max-w-7xl gap-6">
+            <div class="col-span-12 md:col-span-7 image-container h-[70vh]">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1974&auto=format&fit=crop" alt="Model Fashion" class="w-full h-full object-cover grayscale">
+            </div>
+            <div class="col-span-12 md:col-span-5 flex flex-col justify-end pb-12">
+                <h2 class="text-xs uppercase tracking-[0.4em] mb-4 opacity-60">Spring / Summer 2024</h2>
+                <h1 class="text-6xl md:text-8xl font-serif leading-none mb-8">Poesie en Mouvement</h1>
+                <p class="text-sm max-w-xs mb-10 leading-relaxed text-mid-gray">
+                    Sebuah studi tentang bentuk dan kelembutan. Dibuat di Paris untuk jiwa-jiwa yang menghargai ketenangan dalam kebisingan.
+                </p>
+                <a href="#" class="inline-block border-b border-black pb-2 text-xs uppercase tracking-[0.2em] hover:opacity-50 transition">Jelajahi Koleksi</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Editorial Marquee -->
+    <section class="py-12 marquee-wrapper">
+        <div class="marquee-content text-6xl md:text-[8rem] font-serif uppercase tracking-widest text-gray-100">
+            &nbsp;Timeless Craftsmanship &nbsp;•&nbsp; Haute Couture &nbsp;•&nbsp; Monochromatic Soul &nbsp;•&nbsp; Timeless Craftsmanship &nbsp;•&nbsp; Haute Couture &nbsp;•&nbsp; Monochromatic Soul &nbsp;•&nbsp;
+        </div>
+    </section>
+
+    <!-- The Atelier Section (Craftsmanship Focus) -->
+    <section class="py-24 px-6 md:px-20 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div class="fade-in">
+                <span class="text-xs uppercase tracking-widest block mb-4">The Atelier</span>
+                <h3 class="text-4xl md:text-5xl font-serif mb-8 leading-tight italic">"Kesempurnaan tidak ditemukan, melainkan dijahit satu per satu."</h3>
+                <p class="text-md leading-loose text-mid-gray mb-8">
+                    Setiap jahitan di L'ÉLÉGANCE adalah janji akan kualitas. Kami bekerja dengan pengrajin generasi ketiga yang menguasai seni memotong kain seolah-olah mereka sedang memahat cahaya. Material kami bersumber secara etis dari pabrik sutra terbaik di Italia.
+                </p>
+                <div class="editorial-line w-24 mb-8"></div>
+                <div class="flex gap-10">
+                    <div>
+                        <div class="text-2xl font-serif">142</div>
+                        <div class="text-[10px] uppercase tracking-widest text-mid-gray">Jam Pengerjaan Hand-stitched</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-serif">100%</div>
+                        <div class="text-[10px] uppercase tracking-widest text-mid-gray">Serat Organik Alami</div>
+                    </div>
+                </div>
+            </div>
+            <div class="image-container h-[80vh] fade-in">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" alt="Pengerjaan Detail" class="w-full h-full object-cover grayscale">
+            </div>
+        </div>
+    </section>
+
+    <!-- Collection Showcase -->
+    <section class="py-24 bg-soft-gray overflow-hidden">
+        <div class="px-6 md:px-20 mb-16 flex justify-between items-end">
+            <div>
+                <h4 class="text-xs uppercase tracking-widest mb-2">Les Essentiels</h4>
+                <h2 class="text-5xl font-serif">Pilihan Editor</h2>
+            </div>
+            <a href="#" class="text-xs uppercase tracking-widest border-b border-black pb-1">Lihat Semua</a>
+        </div>
+
+        <div class="flex gap-8 px-6 md:px-20 overflow-x-auto no-scrollbar pb-10">
+            <!-- Product 1 -->
+            <div class="min-w-[300px] md:min-w-[450px] group">
+                <div class="aspect-[3/4] overflow-hidden mb-6 bg-white">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920&auto=format&fit=crop" alt="Produk 1" class="w-full h-full object-cover grayscale hover:scale-110 transition duration-700">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h5 class="font-serif text-xl">Mantel Sutra Noir</h5>
+                        <p class="text-xs uppercase tracking-widest text-mid-gray">Koleksi Terbatas</p>
+                    </div>
+                    <span class="font-light">IDR 24,500,000</span>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="min-w-[300px] md:min-w-[450px] group">
+                <div class="aspect-[3/4] overflow-hidden mb-6 bg-white">
+                    <img src="https://images.unsplash.com/photo-1534030347209-467a5b0ad3e6?q=80&w=1974&auto=format&fit=crop" alt="Produk 2" class="w-full h-full object-cover grayscale hover:scale-110 transition duration-700">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h5 class="font-serif text-xl">Setelan Wol Sculptural</h5>
+                        <p class="text-xs uppercase tracking-widest text-mid-gray">Atelier Eksklusif</p>
+                    </div>
+                    <span class="font-light">IDR 38,200,000</span>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="min-w-[300px] md:min-w-[450px] group">
+                <div class="aspect-[3/4] overflow-hidden mb-6 bg-white">
+                    <img src="https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1911&auto=format&fit=crop" alt="Produk 3" class="w-full h-full object-cover grayscale hover:scale-110 transition duration-700">
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h5 class="font-serif text-xl">Gaun Lipit Monokrom</h5>
+                        <p class="text-xs uppercase tracking-widest text-mid-gray">Koleksi Runway</p>
+                    </div>
+                    <span class="font-light">IDR 19,800,000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Statement Section -->
+    <section class="relative h-screen flex items-center justify-center text-center px-6">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b830c6039?q=80&w=2070&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-30">
+        </div>
+        <div class="relative z-10 max-w-3xl">
+            <h2 class="text-xs uppercase tracking-[0.5em] mb-10">Mendaftar Untuk Eksklusivitas</h2>
+            <h3 class="text-5xl md:text-7xl font-serif mb-12">Menjadi Bagian dari Lingkaran Kami</h3>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <input type="email" placeholder="Alamat Email Anda" class="bg-transparent border-b border-black py-4 px-2 w-full md:w-80 outline-none placeholder:text-gray-400">
+                <button class="bg-black text-white px-10 py-4 uppercase tracking-widest text-xs hover:bg-gray-800 transition">Berlangganan</button>
+            </div>
+            <p class="mt-8 text-[10px] text-mid-gray uppercase tracking-widest italic">Dapatkan akses awal ke koleksi terbatas dan undangan acara privat.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white pt-24 pb-12 px-6 md:px-20 border-t border-gray-100">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
+            <div class="col-span-1 md:col-span-1">
+                <h2 class="text-2xl font-serif tracking-[0.2em] mb-8">L'ÉLÉGANCE</h2>
+                <p class="text-xs text-mid-gray leading-loose max-w-xs">
+                    Mendefinisikan ulang kemewahan modern melalui keheningan dan keanggunan yang tak lekang oleh waktu.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-[10px] uppercase tracking-widest mb-6 font-bold">Layanan Pelanggan</h4>
+                <ul class="text-xs space-y-4 text-mid-gray">
+                    <li><a href="#" class="hover:text-black transition">Hubungi Kami</a></li>
+                    <li><a href="#" class="hover:text-black transition">Pengiriman & Pengembalian</a></li>
+                    <li><a href="#" class="hover:text-black transition">Panduan Ukuran</a></li>
+                    <li><a href="#" class="hover:text-black transition">Layanan Atelier</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-[10px] uppercase tracking-widest mb-6 font-bold">Tentang Brand</h4>
+                <ul class="text-xs space-y-4 text-mid-gray">
+                    <li><a href="#" class="hover:text-black transition">Cerita Kami</a></li>
+                    <li><a href="#" class="hover:text-black transition">Keberlanjutan</a></li>
+                    <li><a href="#" class="hover:text-black transition">Karir</a></li>
+                    <li><a href="#" class="hover:text-black transition">Toko Konsep</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-[10px] uppercase tracking-widest mb-6 font-bold">Sosial</h4>
+                <div class="flex gap-6">
+                    <a href="#" class="text-mid-gray hover:text-black transition uppercase text-[10px] tracking-widest">Instagram</a>
+                    <a href="#" class="text-mid-gray hover:text-black transition uppercase text-[10px] tracking-widest">Pinterest</a>
+                    <a href="#" class="text-mid-gray hover:text-black transition uppercase text-[10px] tracking-widest">Vogue</a>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center text-[10px] tracking-widest text-mid-gray uppercase pt-12 border-t border-gray-50">
+            <p>&copy; 2024 L'ÉLÉGANCE. Semua Hak Dilindungi.</p>
+            <div class="flex gap-10 mt-4 md:mt-0">
+                <a href="#">Privasi</a>
+                <a href="#">Syarat & Ketentuan</a>
+                <a href="#">Cookie</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Intersection Observer for Fade-In Effect
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Navbar Shrink
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-4');
+                nav.classList.remove('py-6');
+            } else {
+                nav.classList.add('py-6');
+                nav.classList.remove('py-4');
+            }
+        });
+    </script>
+</body>
+</html>
